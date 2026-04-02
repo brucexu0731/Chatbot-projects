@@ -21,11 +21,6 @@ async function getWeatherByCity(city: string) {
   return { temp: null, error: 'Weather data not available for this city' };
 }
 
-// 🧠 Challenge:  
-// Create a tool called `getWeatherDataByCityName`  
-// It should take a city (New York or London) and return mock weather data as JSON text  
-// Use a helper like getWeatherByCity() to return the data  
-
 // Registering a tool on the MCP server
 server.tool(
   // Tool name
@@ -50,13 +45,6 @@ server.tool(
   }
 );
 
-/**
- *  Challenge: Create a static resource for the weather tool
- * - Use URI: weather://cities
- * - Return a plain text list of supported cities (e.g., London and New York)
- * - Set content type to 'text/plain'
- */
-
 // Registering a static resource on the MCP server
 server.resource(
   // URI: A unique identifier for this resource
@@ -73,11 +61,6 @@ server.resource(
   }
 );
 
-// 🌟 Challenge:
-// Inside the async function:
-// 1. Define the stdio transport by creating a `const transport` object with a new instance of `StdioServerTransport`.
-// 2. Connect the server using `await server.connect(transport)`.
-// 3. Print status messages to the terminal using `console.error()` to indicate the server is running.
 
 
 async function init() {
