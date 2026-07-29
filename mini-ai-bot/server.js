@@ -35,9 +35,8 @@ with clarifying questions that would help improve the recommendations.`,
   },
 ];
 
-// Challenge: See challenge.md for instructions
+// prompting the chatbot
 app.post("/api/gift", async (req, res) => {
-  // TODO: Step 2 — extract userPrompt from req.body and add to messages
   const { userPrompt } = req.body
 
   messages.push({
@@ -46,13 +45,11 @@ app.post("/api/gift", async (req, res) => {
   })
 
   try {
-    // TODO: Step 3 — send chat completions request
     const response = await openai.chat.completions.create({
       model: process.env.AI_MODEL,
       messages,
     });
 
-    // TODO: Step 4 — extract content and send back as JSON
     const giftSuggestions = response.choices[0].message.content
     console.log(giftSuggestions)
 
